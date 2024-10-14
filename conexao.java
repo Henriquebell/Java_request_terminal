@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.io.*;
 import org.json.*;
 
-class RequestsTerminal{
+class Conexao{
 	/**
 		@param api 
 		link da api de livros
@@ -14,7 +14,7 @@ class RequestsTerminal{
 	public HttpURLConnection httpcon; 
 	private URL url;
 	
-	RequestsTerminal(String api) throws  MalformedURLException, IOException{
+	Conexao(String api) throws  MalformedURLException, IOException{
 		this.api = api;
 		this.url = new URL(api);
 		this.httpcon = (HttpURLConnection) url.openConnection();
@@ -27,7 +27,7 @@ class RequestsTerminal{
 		String cep = s.nextLine();
 		String api = "https://viacep.com.br/ws/*/json";
 		api = api.replace("*",cep);
-		RequestsTerminal RL = new RequestsTerminal(api);
+		Conexao RL = new Conexao(api);
 		
 		try{	
 			RL.httpcon.getRequestMethod();
